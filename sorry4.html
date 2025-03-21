@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Friendship Surprise</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Baloo 2', cursive;
+        }
+
+        body {
+            background: linear-gradient(45deg, #ff6ec4, #7873f5, #ff9a8b);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite alternate;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Floating Emojis */
+        .emoji-bg {
+            position: absolute;
+            font-size: 20px; /* Smaller size */
+            opacity: 0.7;
+            animation: floatEmojis 6s infinite ease-in-out;
+        }
+
+        @keyframes floatEmojis {
+            0% { transform: translateY(100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+
+  /* Centered Text Block */
+  .container {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+
+    /* Glassmorphism Effect */
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.25);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    /* Push text block lower */
+    margin-top: 600px;
+}
+
+
+
+.page {
+    display: none;
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.8); /* Increased opacity for better visibility */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: #333; /* Dark gray text for better contrast */
+    width: 100%;
+    animation: slideIn 1s ease-in-out;
+}
+
+h1, p {
+    color: #222; /* Darker text color for visibility */
+}
+
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #ff4081, #ff7eb3);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Neon Glow Text */
+        .neon-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 40px #ff0080;
+            animation: neonGlow 1.5s infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 40px #ff0080;
+            }
+            to {
+                text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc, 0 0 50px #ff66cc;
+            }
+        }
+        .big-heart {
+      font-size: 100px; /* Adjust size as needed */
+      color: red;
+  }
+  .bottom-image {
+    display: block;
+    width: 80%; /* Adjust size as needed */
+    max-width: 400px;
+    margin: 20px auto; /* Center it */
+    border-radius: 15px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
+</head>
+<body>
+    <audio id="bg-music" loop>
+        <source src="E:\\InnovateX\\Count.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let audio = document.getElementById("bg-music");
+    
+            // Try playing immediately
+            let playPromise = audio.play();
+    
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log("Music started playing automatically.");
+                }).catch(error => {
+                    console.log("Autoplay blocked. Waiting for user interaction...");
+                    document.body.addEventListener("click", () => {
+                        audio.play();
+                        console.log("Music started after user interaction.");
+                    }, { once: true });
+                });
+            }
+        });
+    </script>
+    
+    
+
+    <!-- Floating Emojis from Bottom to Top -->
+    <div class="emoji-bg" style="left: 5%; animation-delay: 0s;">❤️</div>
+    <div class="emoji-bg" style="left: 20%; animation-delay: 1s;">😊</div>
+    <div class="emoji-bg" style="left: 35%; animation-delay: 2s;">🌟</div>
+    <div class="emoji-bg" style="left: 50%; animation-delay: 3s;">💖</div>
+    <div class="emoji-bg" style="left: 65%; animation-delay: 4s;">🎀</div>
+    <div class="emoji-bg" style="left: 80%; animation-delay: 5s;">💞</div>
+    <div class="emoji-bg" style="left: 95%; animation-delay: 6s;">🎉</div>
+
+    <div class="container">
+        <div class="page active" id="page1">
+            <h1>Hey, We Need to Talk! ❤️</h1>
+            <p>First plzz click on the heart and make sure that your'e not mute. Thank you</p>
+            <p>🙏🙇👦</p>
+           <div class="big-heart">❤️</div>
+
+            <button onclick="nextPage()">Next</button>
+        </div>
+        <div class="page" id="page2">
+            <h1>Hey, We Need to Talk! ❤️</h1>
+            <p>We don’t say it often, but you both really mean a lot to us. This group wouldn't be the same without you.</p>
+            <button onclick="nextPage()">Next</button>
+        </div>
+        
+        <div class="page" id="page3">
+            <h1>The Truth</h1>
+            <p> We don’t always express it, but we never want to lose this friendship, you both really mean a lot to us.</p>
+            <p>The last night was never planned—it was all random. We didn’t intentionally leave you out, and we get why it may have felt that way.</p>
+
+            <button onclick="nextPage()">Next</button>
+        </div>
+
+        <div class="page" id="page4">
+            <h1>Apology</h1>
+            <p> We know we messed up, and we're truly sorry🙏for the pain we caused and the feelings we hurt 😔. We never meant to make you feel left out or unimportant.🥺</p>
+            <p>Whether you believe it or not, that’s your choice—but this is how we feel. 💖If you think we’re just trying to cover up, it's not like that. Our bond is real, and we wouldn’t trade it for anything. 🤝✨</p>
+
+            <button onclick="nextPage()">Next</button>
+        </div>
+
+        <div class="page" id="page5">
+            <h1>Friendship is Built on Respect 💖</h1>
+            <p>Through all the craziness, weirdness, and randomness, one thing remains—we respect and care for both you more than words can say.</p>
+            <p>Here’s to many more memories, laughter, and adventures ahead. Let’s never let anything break this circle! 🔥</p>
+
+            <button onclick="nextPage()">Next</button>
+        </div>
+
+        <div class="page" id="page6">
+            <h1 class="neon-text">We're Sorry Again! 💖</h1>
+            <p>We truly appreciate you both for always being there, tolerating our nonsense every moment.</p>
+            <p>"Mistakes happen, but we’ve learned from this. We promise to always include you and make things right. 💞🙏"</p>
+            <p>"We hope you understand.
+                - Yours, The Boys ❤️🙏"</p>
+            <img src="E:\InnovateX\1.jpg" alt="Friendship Image" class="bottom-image">
+
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        function nextPage() {
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            currentPage++;
+            let next = document.getElementById(`page${currentPage}`);
+            if (next) {
+                next.classList.add('active');
+            }
+        }
+    </script>
+
+
+</body>
+</html>
